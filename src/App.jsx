@@ -83,7 +83,6 @@ function App() {
     .filter((product) => product.category === selection || selection === "")
     .filter((product) => (checkAvailable ? product.available : true));
 
-  console.log(filteredProductList);
   return (
     <>
       <Navbar />
@@ -107,17 +106,13 @@ function App() {
         <section>
           {filteredProductList.length > 0 ? (
             filteredProductList.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                tools={{ basket, setBasket }}
-              />
+              <ProductCard key={product.id} product={product} />
             ))
           ) : (
             <p>{`Il n'y a pas de guitare ${selection} disponible`}</p>
           )}
         </section>
-        <Basket basket={basket} />
+        <Basket />
       </main>
       <Footer />
     </>

@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
-export default function ProductCard({ product, tools }) {
+import { useBasket } from "../hooks/useContext";
+export default function ProductCard({ product }) {
+  const { basket, setBasket } = useBasket();
+  console.log(basket, setBasket);
   const addArticle = () => {
-    tools.setBasket((prevBasket) => [...prevBasket, product]);
+    setBasket((prevBasket) => [...prevBasket, product]);
   };
 
   return (

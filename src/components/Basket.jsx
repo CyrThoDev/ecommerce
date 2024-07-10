@@ -1,6 +1,12 @@
 /* eslint-disable react/prop-types */
-export default function Basket({ basket }) {
-  console.log("DEPUIS MON COMPOSANT BASKET", basket);
+
+import { useContext } from "react";
+import BasketContext from "../context/BasketContext";
+
+export default function Basket() {
+  const { basket } = useContext(BasketContext);
+
+  // console.log("DEPUIS MON COMPOSANT BASKET", basket);
   return (
     <>
       <h1>Panier - composant basket</h1>
